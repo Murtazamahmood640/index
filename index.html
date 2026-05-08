@@ -1,12 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Interactive HTML Page</title>
+
+  <!-- Internal CSS -->
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial, sans-serif;
+    }
+
+    body{
+      height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      background:linear-gradient(135deg,#4facfe,#00f2fe);
+    }
+
+    .card{
+      background:white;
+      padding:30px;
+      width:350px;
+      border-radius:15px;
+      text-align:center;
+      box-shadow:0 10px 25px rgba(0,0,0,0.2);
+      transition:0.3s;
+    }
+
+    .card:hover{
+      transform:scale(1.03);
+    }
+
+    h1{
+      color:#0077ff;
+      margin-bottom:15px;
+    }
+
+    p{
+      margin-bottom:20px;
+      color:#555;
+    }
+
+    .box{
+      width:120px;
+      height:120px;
+      margin:20px auto;
+      border-radius:12px;
+      background:#0077ff;
+      transition:0.5s;
+    }
+
+    button{
+      padding:12px 20px;
+      border:none;
+      border-radius:8px;
+      background:#0077ff;
+      color:white;
+      font-size:16px;
+      cursor:pointer;
+      transition:0.3s;
+    }
+
+    button:hover{
+      background:#005fd1;
+    }
+
+    #message{
+      margin-top:20px;
+      font-size:18px;
+      font-weight:bold;
+      color:#ff5722;
+    }
+  </style>
 </head>
+
 <body>
-    <h1>This is my website</h1>
-    <h2>Welcome</h2>
+
+  <div class="card">
+    <h1>Interactive Web Page</h1>
+    <p>Click the button to change the color and message.</p>
+
+    <div class="box" id="colorBox"></div>
+
+    <button onclick="changeStuff()">Click Me</button>
+
+    <div id="message"></div>
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+    const colors = [
+      "#ff6b6b",
+      "#6bcB77",
+      "#4d96ff",
+      "#ffd93d",
+      "#845ec2"
+    ];
+
+    const messages = [
+      "Welcome! 🎉",
+      "You clicked the button 😎",
+      "HTML + CSS + JS ❤️",
+      "Keep Learning 🚀",
+      "Interactive pages are fun ✨"
+    ];
+
+    function changeStuff() {
+      const randomColor =
+        colors[Math.floor(Math.random() * colors.length)];
+
+      const randomMessage =
+        messages[Math.floor(Math.random() * messages.length)];
+
+      document.getElementById("colorBox").style.background =
+        randomColor;
+
+      document.getElementById("message").innerHTML =
+        randomMessage;
+    }
+  </script>
+
 </body>
 </html>
